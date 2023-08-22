@@ -44,6 +44,23 @@ class LinkedList():
             self.tail == None
         return temp
     
+    def get_item(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        else:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+            return temp
+        
+    def set_value(self, index, value):
+        temp = self.get_item(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+            
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -51,11 +68,11 @@ class LinkedList():
             temp = temp.next
             
 
-my_linked_list = LinkedList(2)
+my_linked_list = LinkedList(1)
+my_linked_list.append_list(2)
 my_linked_list.append_list(3)
-my_linked_list.prepend(1)
+my_linked_list.prepend(0)
+my_linked_list.set_value(1, 23)
 
-print(my_linked_list.pop_first())
-print(my_linked_list.pop_first())
-print(my_linked_list.pop_first())
-print(my_linked_list.pop_first())
+my_linked_list.print_list()
+
